@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>PC Remote Controller</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top Header Bar -->
+    <header class="header-bar">
+      <div class="brand">
+        <span class="status-dot disconnected" id="statusDot"></span>
+        <span class="brand-title">PC Remote</span>
+      </div>
+
+      <div class="quick-controls">
+        <button id="btnCursor" class="header-btn" title="Размер курсора">
+          <span class="btn-icon">🔍</span>
+          <span id="cursorLabel" class="btn-badge">32</span>
+        </button>
+        <button id="btnMagnifier" class="header-btn" title="Экранная лупа">
+          <span class="btn-icon">🔎</span>
+        </button>
+        <button id="btnKeyboard" class="header-btn primary-btn" title="Экранная клавиатура">
+          <span class="btn-icon">⌨️</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Quick Shortcuts Bar -->
+    <section class="shortcuts-bar">
+      <div class="shortcuts-scroll">
+        <button class="chip-btn" data-key="WIND" title="Свернуть все окна">Win+D</button>
+        <button class="chip-btn" data-key="ALTTAB" title="Переключение окон">Alt+Tab</button>
+        <button class="chip-btn" data-key="CTRLC">Ctrl+C</button>
+        <button class="chip-btn" data-key="CTRLV">Ctrl+V</button>
+        <button class="chip-btn" data-key="CTRLZ">Ctrl+Z</button>
+        <button class="chip-btn" data-key="CTRLA">Ctrl+A</button>
+        <button class="chip-btn" data-key="ESC">Esc</button>
+        <button class="chip-btn" data-key="WIN">Win</button>
+      </div>
+    </section>
+
+    <!-- Main Touchpad Area -->
+    <main class="touchpad-wrapper">
+      <div id="touchpad" class="touchpad">
+        <div class="touchpad-hint" id="touchpadHint">
+          <div class="hint-icon">👆</div>
+          <div class="hint-text">Сенсорная область</div>
+          <div class="hint-sub">1 палец: клик / 2 пальца: ПКМ, скролл / Удержание: Drag</div>
+        </div>
+        <div class="drag-indicator" id="dragIndicator">
+          <span class="drag-dot"></span> ПЕРЕТАСКИВАНИЕ (DRAG & DROP)
+        </div>
+      </div>
+      <!-- Right Side Scroll Strip -->
+      <div id="scrollStrip" class="scroll-strip">
+        <span class="scroll-strip-label">SCROLL</span>
+      </div>
+    </main>
+
+    <!-- Media & Navigation Bar -->
+    <section class="media-bar">
+      <button class="media-btn" data-key="MUTE" title="Mute">🔇</button>
+      <button class="media-btn" data-key="VOLDOWN" title="Volume Down">🔉</button>
+      <button class="media-btn" data-key="VOLUP" title="Volume Up">🔊</button>
+      <button class="media-btn play-btn" data-key="PLAYPAUSE" title="Play/Pause">⏯️</button>
+    </section>
+
+    <!-- Physical Bottom Mouse Buttons -->
+    <footer class="mouse-buttons">
+      <button id="btnLeftClick" class="mouse-btn left-btn">
+        <span class="btn-title">ЛКМ</span>
+      </button>
+      <button id="btnMiddleClick" class="mouse-btn middle-btn">
+        <span class="btn-title">СКМ</span>
+      </button>
+      <button id="btnRightClick" class="mouse-btn right-btn">
+        <span class="btn-title">ПКМ</span>
+      </button>
+    </footer>
+
+    <!-- Hidden Input for Virtual/Voice Keyboard -->
+    <input
+      type="text"
+      id="hiddenInput"
+      class="hidden-input"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      tabindex="-1"
+    />
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PC Remote Controller</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="window-container">
+    <!-- Custom Frameless Titlebar -->
+    <header class="titlebar">
+      <div class="titlebar-drag">
+        <span class="app-icon">📡</span>
+        <span class="app-title">PC Remote Controller</span>
+      </div>
+      <div class="titlebar-controls">
+        <button id="btnMinimize" class="control-btn" title="Свернуть">─</button>
+        <button id="btnClose" class="control-btn close-btn" title="Скрыть в трей">✕</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Status Card -->
+      <div class="status-card">
+        <div class="status-left">
+          <span class="live-pulse" id="liveDot"></span>
+          <div>
+            <div class="status-title" id="statusTitle">Сервер активен</div>
+            <div class="status-subtitle" id="statusSubtitle">Ожидание подключения...</div>
+          </div>
+        </div>
+        <div class="clients-badge" id="clientsBadge">0 устр.</div>
+      </div>
+
+      <!-- QR Code Section -->
+      <div class="qr-section">
+        <div class="qr-frame">
+          <img id="qrImage" src="" alt="QR Code" class="qr-img">
+          <div id="qrLoading" class="qr-loading">Генерация QR...</div>
+        </div>
+        <p class="qr-hint">Отсканируйте камерой смартфона для входа</p>
+      </div>
+
+      <!-- Network & Link Section -->
+      <div class="network-box">
+        <label class="section-label">Сетевой адрес (IP):</label>
+        <div class="ip-select-wrapper">
+          <select id="ipSelect" class="ip-select"></select>
+        </div>
+
+        <div class="url-input-group">
+          <input type="text" id="urlInput" readonly class="url-input" value="http://127.0.0.1:3000">
+          <button id="btnCopyUrl" class="action-btn" title="Скопировать ссылку">📋</button>
+          <button id="btnOpenBrowser" class="action-btn" title="Открыть в браузере ПК">↗️</button>
+        </div>
+      </div>
+
+      <!-- Quick Toggles -->
+      <div class="controls-grid">
+        <button id="btnScaleCursor" class="toggle-card">
+          <span class="toggle-icon">🔍</span>
+          <div class="toggle-text">
+            <span class="toggle-label">Курсор для дивана</span>
+            <span class="toggle-value" id="cursorVal">32 px (Обычный)</span>
+          </div>
+        </button>
+
+        <button id="btnToggleMagnifier" class="toggle-card">
+          <span class="toggle-icon">🔎</span>
+          <div class="toggle-text">
+            <span class="toggle-label">Экранная лупа</span>
+            <span class="toggle-value">Вкл / Выкл</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="window-footer">
+      <span>Работает в трее при закрытии окна</span>
+    </footer>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

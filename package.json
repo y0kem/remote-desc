@@ -1,0 +1,31 @@
+{
+  "name": "pc-remote-controller",
+  "version": "1.0.0",
+  "description": "Ultra-low latency PC Remote Controller via mobile browser over local Wi-Fi",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "server": "node server.js",
+    "build:bridge": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe /nologo /optimize /target:exe /out:native\\InputBridge.exe native\\InputBridge.cs",
+    "build:launcher": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\csc.exe /nologo /optimize /target:winexe /r:System.Windows.Forms.dll /out:PCRemote.exe native\\Launcher.cs",
+    "build:all": "npm run build:bridge && npm run build:launcher"
+  },
+  "keywords": [
+    "remote-control",
+    "touchpad",
+    "trackpad",
+    "win32",
+    "websocket",
+    "electron"
+  ],
+  "author": "y0kem",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "qrcode": "^1.5.3",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "electron": "^29.1.5"
+  }
+}
